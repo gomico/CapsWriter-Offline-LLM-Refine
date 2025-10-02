@@ -1,5 +1,7 @@
 ## CapsWriter-Offline
 
+LLM refinement is verified with Python 3.9. Edit `config.py` to enable the feature.
+
 ![image-20240108115946521](assets/image-20240108115946521.png)  
 
 这是 `CapsWriter-Offline` ，一个 PC 端的语音输入、字幕转录工具。

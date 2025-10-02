@@ -1,5 +1,5 @@
 rich
-websockets
+websockets==13.0
 numpy
 typeguard==2.13.3
 sherpa_onnx==1.8.11

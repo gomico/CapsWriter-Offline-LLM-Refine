@@ -18,6 +18,7 @@ import colorama
 from util import srt_from_txt
 from util.client_cosmic import console, Cosmic
 from util.client_check_websocket import check_websocket
+from util.client_llm import llm_processor
 from config import ClientConfig as Config
 
 
@@ -95,6 +96,10 @@ async def transcribe_recv(file: Path):
 
     # 解析结果
     text_merge = message['text']
+
+    # LLM优化
+    text_merge = await llm_processor.optimize_text(text_merge)
+
     text_split = re.sub('[，。？]', '\n', text_merge)
     timestamps = message['timestamps']
     tokens = message['tokens']

@@ -47,6 +47,16 @@ class ClientConfig:
     file_seg_duration = 25           # 转录文件时分段长度
     file_seg_overlap = 2             # 转录文件时分段重叠
 
+    # LLM优化配置
+    llm_enable = False               # 是否启用LLM优化
+    llm_api_base = 'https://api.deepseek.com/v1'  # OpenAI规范的API基础URL
+    llm_api_key = 'sk-xxx'  # API密钥
+    llm_model = 'deepseek-chat'      # 使用的模型
+    llm_timeout = 30                 # API请求超时时间(秒)
+    llm_proxy = ''  # LLM请求代理地址，留空则不使用代理
+    llm_system_prompt = '你是一个语言优化助手，你的任务是修正语音转录文本中的错别字、语法错误和标点符号误用，保持原意和外文不变。只输出优化后的文本，不要添加任何解释。'  # LLM系统提示词
+    llm_user_prompt_template = '请优化以下语音转录文本，修正其中的错别字、语法错误和标点符号误用：\n\n原始文本：\n{input_text}\n\n优化后的文本：'  # LLM用户提示词模板
+
 
 class ModelPaths:
     model_dir = Path() / 'models'

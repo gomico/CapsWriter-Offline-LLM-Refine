@@ -11,6 +11,7 @@ from util.client_rename_audio import rename_audio
 from util.client_strip_punc import strip_punc
 from util.client_write_md import write_md
 from util.client_type_result import type_result
+from util.client_llm import llm_processor
 
 
 async def recv_result():
@@ -34,6 +35,9 @@ async def recv_result():
 
             # 热词替换
             text = hot_sub(text)
+
+            # LLM优化
+            text = await llm_processor.optimize_text(text)
 
             # 打字
             await type_result(text)
